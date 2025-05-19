@@ -1,7 +1,30 @@
 def sponge_case(sentence):
     # Write your solution here!
-    pass
+    # pass
 
+    sentence_list = sentence.split(" ")
+
+    reformated_sentence_list = []
+    for word in sentence_list:
+        # print(sponse_word(word))
+        reformated_sentence_list.append(sponse_word(word))
+
+    # print(reformated_sentence_list)
+    # print("".join(reformated_sentence_list))
+    return " ".join(reformated_sentence_list)
+
+
+def sponse_word(sentence):
+    for i in range(len(sentence)):
+        if i == 0:
+            sentence = sentence[i].lower() + sentence[i+1:]
+            continue
+        if sentence[i-1].islower():
+            sentence = sentence[:i] + sentence[i].upper() + sentence[i+1:]
+        elif sentence[i-1].isupper():
+            sentence = sentence[:i] + sentence[i].lower() + sentence[i+1:]
+
+    return sentence
 
 
 # Test cases
