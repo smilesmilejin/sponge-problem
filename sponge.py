@@ -48,7 +48,31 @@ def sponge_case(sentence):
         
     return sentence
 
+# Method 3
+def sponge_case(sentence):
+    # Write your solution here!
+    # pass
+    result = ""
 
+    i = 0
+    while i < len(sentence):
+        if i == 0:
+            result = result + sentence[i].lower()
+            i += 1
+            continue
+        if sentence[i] == " ":
+            result = result + sentence[i]
+            i += 1
+            continue
+
+        if result[-1].islower():
+            result = result + sentence[i].upper()
+            i += 1
+        elif result[-1] == " " or result[-1].isupper():
+            result = result + sentence[i].lower()
+            i += 1
+    
+    return result
 
 # Test cases
 assert sponge_case("spongebob") == "sPoNgEbOb"
